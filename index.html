@@ -1027,11 +1027,12 @@
       return;
     }
 
-    // External links — show toast with copy option
-    if (href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:')) {
+    // External links — open in new tab
+    if (href.startsWith('http')) {
       e.preventDefault();
-      showToast(href);
+      window.open(href, '_blank', 'noopener,noreferrer');
     }
+    // mailto and tel links — let the browser handle them natively
   });
 
   // Scroll reveal
